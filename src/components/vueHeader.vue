@@ -12,7 +12,7 @@
 import bus from './eventBus.js'
 
 export default {
-    name:'vheader',
+    name:'vueHeader',
     data:function() {
         return {
             list:[],
@@ -20,8 +20,16 @@ export default {
             tips:false
         }
     },
+    mounted(){
+        bus.$on('clear',()=>{
+            this.list=[]
+        })
+    },
     methods:{
         add:function(){
+            bus.$on('clear',()=>{
+                this.todolist=[]
+            })
             if (this.input!=""){
                 this.list.push(this.input)
                 this.input=''
@@ -32,7 +40,7 @@ export default {
                 this.$notify.error({
                 title: '输入值为空',
                 message: h('b', { style: 'color: red'}, '请重新输入')
-        });
+            });
             }
         },
     }

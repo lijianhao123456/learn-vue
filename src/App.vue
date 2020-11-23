@@ -1,25 +1,26 @@
 <template>
   <div id="app">
-    <vheader/>
-    <vsection/>
+    <vueHeader/>
+    <vueSection/>
   </div>
 </template>
 
 <script>
-import vheader from './components/vheader.vue'
-import vsection from './components/vsection.vue'
+import vueHeader from './components/vueHeader.vue'
+import vueSection from './components/vueSection.vue'
 
 export default {
   name: 'app',
   components: {
-    vheader,
-    vsection,
+    vueHeader,
+    vueSection,
   }
 }
 </script>
 
 <style>
 #app {
+  margin: -8px;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

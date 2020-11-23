@@ -22,13 +22,15 @@
                 <el-button @click="deleteCompleted(index)" type="info" icon="el-icon-delete" circle></el-button>
             </li>
         </ol>
+        <el-button @click="clear" type="primary" icon="el-icon-delete">清空</el-button>
+        <el-footer>Copyright©2020 李健豪 版权所有 </el-footer>
     </section>
 </template>
 <script>
 import bus from './eventBus.js'
 
 export default {
-    name:'vsection',
+    name:'vueSection',
     data:function() {
         return {
             todolist:[],
@@ -54,6 +56,11 @@ export default {
         },
         deleteCompleted:function(index){
             this.completedlist.splice(index,1);
+        },
+        clear:function(){
+            bus.$emit('clear')
+            this.todolist=[]
+            this.completedlist=[]
         }
     }
 }
@@ -93,15 +100,23 @@ export default {
         padding: 0 45px;
         border-radius: 5px;
     }
-    button{
+    li button{
         padding:4px !important;
         position: absolute;
         top: 4px;
     }
-    button:nth-child(1){
+    li button:nth-child(1){
         right: 40px;
     }
-    button:nth-child(2){
+    li button:nth-child(2){
         right: 10px;
+    }
+    section>button{
+        position: relative;
+        left: 270px;
+    }
+    footer{
+        color:#909399;
+        text-align: center;
     }
 </style>
