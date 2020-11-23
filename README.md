@@ -1,5 +1,7 @@
 # todolist
 
+# 移动端未适配，body内边距未清除
+
 ## Project setup
 ```
 npm install
